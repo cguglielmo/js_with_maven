@@ -1,0 +1,4 @@
+# Project exclude paths
+/js_with_maven/js_with_maven.app/target/
+/js_with_maven/js_with_maven.ui/target/
+/js_with_maven/node_modules/

@@ -1,0 +1,4 @@
+packages:
+- '.'
+- 'js_with_maven.ui'
+- 'js_with_maven.app'

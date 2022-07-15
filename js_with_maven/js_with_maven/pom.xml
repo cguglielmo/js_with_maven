@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.eclipse.scout.apps</groupId>
+    <artifactId>js_with_maven-root</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>js_with_maven</artifactId>
+  <packaging>pom</packaging>
+  <name>My Application</name>
+
+  <properties>
+    <jdk.source.version>11</jdk.source.version>
+    <org.eclipse.scout.rt.version>22.0.15</org.eclipse.scout.rt.version>
+    <master_npm_release_dependency_mapping>--mapping.0.regex=@eclipse-scout --mapping.0.version=${org.eclipse.scout.rt.version}</master_npm_release_dependency_mapping>
+  </properties>
+
+  <modules>
+    <!-- Core modules -->
+    <module>../js_with_maven.ui</module>
+
+    <!-- App modules -->
+    <module>../js_with_maven.app</module>
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- Scout Dependencies -->
+      <dependency>
+        <groupId>org.eclipse.scout.rt</groupId>
+        <artifactId>org.eclipse.scout.rt</artifactId>
+        <version>${org.eclipse.scout.rt.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+     <!-- Application dependencies -->
+      <dependency>
+        <groupId>org.eclipse.scout.apps</groupId>
+        <artifactId>js_with_maven.ui</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.scout.apps</groupId>
+        <artifactId>js_with_maven.app</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>3.2.0</version>
+          <configuration>
+            <overWriteReleases>false</overWriteReleases>
+            <overWriteSnapshots>true</overWriteSnapshots>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>webapp_src_folder</id>
+      <activation>
+        <file>
+          <exists>${basedir}/src/main/webapp</exists>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>add-webapp-resource</id>
+                <goals>
+                  <goal>add-resource</goal>
+                </goals>
+                <phase>generate-resources</phase>
+                <configuration>
+                  <resources>
+                    <resource>
+                      <directory>src/main/webapp</directory>
+                    </resource>
+                  </resources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+  <repositories>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>eclipse.release</id>
+      <name>eclipse-release-repo</name>
+      <url>https://repo.eclipse.org/content/groups/releases/</url>
+    </repository>
+    <repository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>eclipse.snapshot</id>
+      <name>eclipse-snapshot-repo</name>
+      <url>https://repo.eclipse.org/content/groups/snapshots/</url>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>eclipse.release</id>
+      <name>eclipse-release-repo</name>
+      <url>https://repo.eclipse.org/content/groups/releases/</url>
+    </pluginRepository>
+    <pluginRepository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>eclipse.snapshot</id>
+      <name>eclipse-snapshot-repo</name>
+      <url>https://repo.eclipse.org/content/groups/snapshots/</url>
+    </pluginRepository>
+  </pluginRepositories>
+</project>

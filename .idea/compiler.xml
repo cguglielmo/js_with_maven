@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="js_with_maven.api" target="11" />
+      <module name="js_with_maven.app.dev" target="11" />
+      <module name="js_with_maven.app.war" target="11" />
+      <module name="js_with_maven.core" target="11" />
+      <module name="js_with_maven.core.test" target="11" />
+      <module name="js_with_maven.data" target="11" />
+      <module name="js_with_maven.db" target="11" />
+      <module name="js_with_maven.persistence" target="11" />
+      <module name="js_with_maven.persistence.test" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

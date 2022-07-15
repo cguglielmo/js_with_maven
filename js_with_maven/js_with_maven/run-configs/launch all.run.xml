@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="launch all" type="CompoundRunConfigurationType">
+    <toRun name="Launch js_with_maven dev server" type="Application" />
+    <toRun name="js build" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>
