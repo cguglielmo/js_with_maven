@@ -1,4 +1,4 @@
-export {default as App} from './App';
+export {default as MyModule} from './MyModule';
 
 import * as self from './index.js';
 

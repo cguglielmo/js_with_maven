@@ -13,10 +13,11 @@
   <packaging>war</packaging>
 
   <dependencies>
-    <dependency>
-      <groupId>org.eclipse.scout.apps</groupId>
-      <artifactId>js_with_maven.ui</artifactId>
-    </dependency>
+    <!-- TODO Jetbrains uncomment this and note that code completion suddenly works -->
+<!--    <dependency>-->
+<!--      <groupId>org.eclipse.scout.apps</groupId>-->
+<!--      <artifactId>js_with_maven.ui</artifactId>-->
+<!--    </dependency>-->
     <dependency>
       <groupId>org.eclipse.scout.rt</groupId>
       <artifactId>org.eclipse.scout.dev.jetty</artifactId>

@@ -1,13 +1,13 @@
-import MyModule from "@js_with_maven/ui/src/main/js/MyModule";
-import {App} from "@js_with_maven/ui";
+// import {MyModule} from "@js_with_maven/ui";
+// import {App} from "@eclipse-scout/core";
 
+// Ctrl-Space does not auto import MyModule.
 let module = new MyModule();
-module.saySomething();
+module.sayHello();
 
+// Another example with code from a library.
+// Initially it does not work either. After waiting some minutes it suddenly works.
 let app = new App();
-app.init({
-  bootstrap: {
-    textsUrl: 'texts.json'
-  }
-});
-app.on('init', () => app.sayHello());
+app.init();
+
+// Uncomment dependency in pom.xml and try again to import MyModule, it will work

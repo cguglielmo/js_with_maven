@@ -1,5 +1,5 @@
 export default class MyModule {
-  saySomething() {
+  sayHello() {
     console.log('Hi there');
   }
 }
